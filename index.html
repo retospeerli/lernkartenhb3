@@ -7,65 +7,91 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<header class="topbar">
-  <h1>HB3 Lernkarten</h1>
-  <button id="homeBtn" hidden>🏠</button>
-</header>
-
-<main>
-
-  <!-- Menü -->
-  <section id="menuView" class="view active">
-    <h2>Themen</h2>
-    <div id="topicGrid"></div>
-  </section>
-
-  <!-- Karten -->
-  <section id="cardsView" class="view">
-
-    <div class="header">
+  <div class="app">
+    <header class="topbar">
       <div>
-        <div id="chapterKicker"></div>
-        <h2 id="chapterTitle"></h2>
+        <h1>BAKOM HB3 Lernkarten</h1>
+        <p class="subtitle">Alle HB3-MC-Fragen als Lernkarten mit Lernmodus</p>
       </div>
-      <div id="counter"></div>
-    </div>
+      <button id="homeBtn" class="ghost" hidden>⌂ Hauptmenü</button>
+    </header>
 
-    <div class="card-container">
-
-      <button id="prevBtn">◀</button>
-
-      <div id="card" class="card">
-        <div class="card-inner">
-
-          <div class="card-front">
-            <div id="qNumber"></div>
-            <div id="question"></div>
-            <ul id="options"></ul>
-            <div class="hint">Klick zum Drehen</div>
-          </div>
-
-          <div class="card-back">
-            <div id="aNumber"></div>
-            <div id="aQuestion"></div>
-            <div class="answer">
-              <strong>Richtige Antwort:</strong>
-              <div id="correct"></div>
-            </div>
-          </div>
-
+    <main>
+      <section id="menuView" class="view active">
+        <div class="panel intro">
+          <h2>Themenübersicht</h2>
+          <p>Wähle ein Thema aus dem Inhaltsverzeichnis. Danach kannst du die Karten umdrehen, blättern und jede Karte als <strong>gewusst</strong> oder <strong>noch üben</strong> markieren.</p>
         </div>
-      </div>
+        <div id="topicGrid" class="topicGrid"></div>
+      </section>
 
-      <button id="nextBtn">▶</button>
+      <section id="cardsView" class="view">
+        <div class="chapterHead">
+          <div>
+            <div id="chapterKicker" class="kicker"></div>
+            <h2 id="chapterTitle"></h2>
+          </div>
+          <div class="headerRight">
+            <div id="counter" class="pill">1 / 1</div>
+            <div id="statusPill" class="pill status neutral">offen</div>
+          </div>
+        </div>
 
-    </div>
+        <div class="toolbar panel">
+          <div class="filterGroup">
+            <button class="filterBtn active" data-filter="all">Alle</button>
+            <button class="filterBtn" data-filter="open">Offen</button>
+            <button class="filterBtn" data-filter="known">Gewusst</button>
+            <button class="filterBtn" data-filter="review">Noch üben</button>
+          </div>
+          <div class="stats">
+            <span id="statAll">Alle: 0</span>
+            <span id="statOpen">Offen: 0</span>
+            <span id="statKnown">Gewusst: 0</span>
+            <span id="statReview">Noch üben: 0</span>
+          </div>
+        </div>
 
-  </section>
+        <div class="cardRow">
+          <button id="prevBtn" class="navBtn" aria-label="Vorherige Karte">◀</button>
 
-</main>
+          <button id="card" class="card" aria-label="Lernkarte drehen">
+            <div class="cardInner">
+              <article class="cardFace front">
+                <div class="cardBadge">Vorderseite</div>
+                <div id="qNumber" class="qNumber"></div>
+                <div id="question" class="question"></div>
+                <ol id="options" class="options"></ol>
+                <div class="hint">Karte anklicken zum Umdrehen</div>
+              </article>
 
-<script src="app.js"></script>
+              <article class="cardFace back">
+                <div class="cardBadge">Rückseite</div>
+                <div id="aNumber" class="qNumber"></div>
+                <div id="aQuestion" class="question"></div>
+                <div class="answerBox">
+                  <div class="answerLabel">Richtige Antwort</div>
+                  <div id="correct" class="correct"></div>
+                </div>
+                <div class="hint">Jetzt Karte bewerten oder weiterblättern</div>
+              </article>
+            </div>
+          </button>
+
+          <button id="nextBtn" class="navBtn" aria-label="Nächste Karte">▶</button>
+        </div>
+
+        <div class="bottomBar">
+          <button id="prevBottom" class="secondaryBtn">⟵ Zurück</button>
+          <button id="markKnown" class="primaryBtn known">✔ Gewusst</button>
+          <button id="markReview" class="primaryBtn review">↺ Noch üben</button>
+          <button id="clearMark" class="secondaryBtn">Markierung löschen</button>
+          <button id="nextBottom" class="secondaryBtn">Weiter ⟶</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
