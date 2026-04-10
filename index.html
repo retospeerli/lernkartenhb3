@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BAKOM HB3 Lernkarten</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <h1>HB3 Lernkarten</h1>
+  <button id="homeBtn" hidden>🏠</button>
+</header>
+
+<main>
+
+  <!-- Menü -->
+  <section id="menuView" class="view active">
+    <h2>Themen</h2>
+    <div id="topicGrid"></div>
+  </section>
+
+  <!-- Karten -->
+  <section id="cardsView" class="view">
+
+    <div class="header">
+      <div>
+        <div id="chapterKicker"></div>
+        <h2 id="chapterTitle"></h2>
+      </div>
+      <div id="counter"></div>
+    </div>
+
+    <div class="card-container">
+
+      <button id="prevBtn">◀</button>
+
+      <div id="card" class="card">
+        <div class="card-inner">
+
+          <div class="card-front">
+            <div id="qNumber"></div>
+            <div id="question"></div>
+            <ul id="options"></ul>
+            <div class="hint">Klick zum Drehen</div>
+          </div>
+
+          <div class="card-back">
+            <div id="aNumber"></div>
+            <div id="aQuestion"></div>
+            <div class="answer">
+              <strong>Richtige Antwort:</strong>
+              <div id="correct"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <button id="nextBtn">▶</button>
+
+    </div>
+
+  </section>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
